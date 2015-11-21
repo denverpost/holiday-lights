@@ -8,7 +8,8 @@
         "marker-size": "medium",
         "marker-symbol": "",
         "icon": "http://maps.google.com/mapfiles/kml/pal3/icon1.png",
-        "description": "Rolfe Lab"
+        "description": "Rolfe Lab",
+        "photo": "http://extras.denverpost.com/projects/2015/kailyn-forsberg/images/forsberg-2-web.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -25,7 +26,8 @@
         "marker-size": "medium",
         "marker-symbol": "",
         "icon": "http://maps.google.com/mapfiles/kml/pal3/icon2.png",
-        "description": "North Athletic Field"
+        "description": "North Athletic Field",
+        "photo": "http://extras.denverpost.com/projects/2015/kailyn-forsberg/images/forsberg-2-web.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -42,7 +44,8 @@
         "marker-size": "medium",
         "marker-symbol": "",
         "icon": "http://maps.google.com/mapfiles/kml/pal3/icon0.png",
-        "description": "The Technology Sandbox, where a group of UCLA sandboxers reside"
+        "description": "The Technology Sandbox, where a group of UCLA sandboxers reside",
+        "photo": "http://extras.denverpost.com/projects/2015/kailyn-forsberg/images/forsberg-2-web.jpg"
       },
       "geometry": {
         "type": "Point",
