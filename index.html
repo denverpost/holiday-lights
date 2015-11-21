@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<!-- From http://sandbox.idre.ucla.edu/dh150/tutorials/google-maps-and-geojson-adding-an-infowindow -->
+	<title>Denver Holiday Lights Map</title>
+	<style type="text/css">
+		html { height: 100% }
+		body { height: 100%; margin: 0px; padding: 0px; background: #222; color: #bbb; }
+		#map_canvas { height:100%; margin-left:300px; }
+	</style>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script>
+		//global variables
+		var map;
+		var infowindow = new google.maps.InfoWindow();
+
+		// declare namespace
+		var lightsMap = {};
+
+		//function that runs when the page loads
+		lightsMap.initialize = function() 
+		{
+			//center lat/lon
+			var latlng = new google.maps.LatLng(34.07389279840181,-118.44172596931456);
+
+			//map configutations
+			var myOptions = {
+				zoom: 15,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			//create the map
+			map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+			//load geojson layer
+			map.data.loadGeoJson('map.js');
+
+			// When the user clicks, open an infowindow
+			map.data.addListener('click', function(event) {
+			var myHTML = event.feature.getProperty("description");
+			infowindow.setContent("<div style='width:150px;'>"+myHTML+"</div>");
+			// position the infowindow on the marker
+			infowindow.setPosition(event.feature.getGeometry().get());
+			// anchor the infowindow on the marker
+			infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
+			infowindow.open(map);
+			});
+
+			// Use custom marker from "icon" field in the geojson
+			map.data.setStyle(function(feature) {
+				return {icon:feature.getProperty('icon')};
+			});
+			}
+			</script>
+	</head>
+	<!-- body of the page with an onload to run the initialize function -->
+	<body onload="lightsMap.initialize()">
+	<div id="map_canvas"></div>
+	</body>
+</html>
